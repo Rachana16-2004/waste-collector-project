@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import CreateAccount from './pages/CreateAccount';
+import Dashboard from './pages/Dashboard';
 import './App.css';
+import PickupRequestForm from './components/PickupRequestForm';
+import AdminLoginPage from './pages/AdminLoginPage';
+import PickupRequestsPage from './pages/PickupRequestsPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/createaccount" element={<CreateAccount />} />
+        <Route path="/admin" element={<AdminLoginPage />}/>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/request-pickup" element={<PickupRequestForm />} />
+        <Route path='/all-request' element={<PickupRequestsPage />} />
+      </Routes>
+    </Router>
   );
 }
 
